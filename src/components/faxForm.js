@@ -1,37 +1,41 @@
 import React, { Component } from 'react';
-import { TextField, Icon, Tabs, Tab } from '@material-ui/core';
+import { TextField, Icon, Tabs, Tab, MuiThemeProvider, createMuiTheme } from '@material-ui/core';
 
-const styles = {
-  section: {
-      display: 'flex',
-      alignItems: 'center',
-      flexDirection: 'column'
-  },
-  textField: {
-      width: '20em',
-      marginTop: '1em'
-  },
-  icon: {
-    marginTop: '1em',
-    fontSize: '2em'
-  }
-};
+import theme from '../styles/theme';
+import styles from '../styles/main';
+
 
 class FaxForm extends Component {
-  state = { value: 0 };
+  state = {
+    value: 0,
+    color: 'primary'
+  };
 
   handleChange = (event, value) => {
-    this.setState({ value });
+    var color;
+    if (value === 0) { color = 'primary' }
+    else { color = 'secondary' }
+    
+    this.setState({ value, color });
   };
   
   render() {
-    return <section style={styles.section}>
-      <Tabs indicatorColor='primary' value={this.state.value} onChange={this.handleChange}>
+    const { value, color } = this.state;
+    const textFieldTheme = createMuiTheme({
+      palette: {
+        primary: { main: theme.palette[color].main }
+      }
+    });
+    
+    return <section style={styles.center}>
+      <Tabs indicatorColor={color} value={value} onChange={this.handleChange}>
         <Tab label='Send'/>
         <Tab label='Recieve'/>
       </Tabs>
-      <TextField style={styles.textField} label='Email'/>
-      <TextField style={styles.textField} label='Phone Number'/>
+      <MuiThemeProvider theme={textFieldTheme}>
+        <TextField color={color} style={styles.textField} label='Email'/>
+        <TextField color={color} style={styles.textField} label='Phone Number'/>
+      </MuiThemeProvider>
       <Icon style={styles.icon}>arrow_drop_down</Icon>
     </section>;
   }

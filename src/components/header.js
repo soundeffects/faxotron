@@ -1,30 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Typography, Icon } from '@material-ui/core/';
 
-
-const styles = {
-  header: { 
-    display: 'flex',
-    padding: '1em',
-    alignItems: 'center'
-  },
-  title: {
-    flex: 1,
-    fontSize: '2em'
-  },
-  aboutWrapper: {
-    display: 'flex',
-    alignItems: 'center',
-    flexDirection: 'column'
-  },
-  aboutParagraph: {
-    width: '40em',
-    margin: '0.5em'
-  },
-  icon: {
-    fontSize: '2em'
-  }
-};
+import styles from '../styles/main';
 
 
 class Header extends Component {
@@ -34,7 +11,7 @@ class Header extends Component {
         <Typography style={styles.title} variant='title'>The Fax-O-Tron</Typography>
         <Button>Help</Button>
       </header>
-      <article style={styles.aboutWrapper}>
+      <article style={styles.center}>
         <p style={styles.aboutParagraph}>
           Have you ever had to fax somebody in this modern age and searched online for a solution,
           only to be met with subscription services you won't ever use again? Well look no further.
