@@ -23,7 +23,8 @@ const styles = {
   },
   textField: {
       width: '20em',
-      marginTop: '1em'
+      marginTop: '1em',
+      color: 'red'
   }
 };
 

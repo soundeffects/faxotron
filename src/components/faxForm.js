@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { TextField, Icon, Tabs, Tab, MuiThemeProvider, createMuiTheme } from '@material-ui/core';
+import PhoneInput from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
+
 
 import theme from '../styles/theme';
 import styles from '../styles/main';
@@ -34,7 +37,10 @@ class FaxForm extends Component {
       </Tabs>
       <MuiThemeProvider theme={textFieldTheme}>
         <TextField color={color} style={styles.textField} label='Email'/>
-        <TextField color={color} style={styles.textField} label='Phone Number'/>
+        <PhoneInput style={styles.textField}
+          placeholder="Phone Number"
+          value={ this.state.phone }
+          onChange={ phone => this.setState({ phone }) } />
       </MuiThemeProvider>
       <Icon style={styles.icon}>arrow_drop_down</Icon>
     </section>;
