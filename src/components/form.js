@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Typography, Button, Stepper, Step, StepLabel } from '@material-ui/core';
 
-import SendOrRecieveStep from './sendOrRecieveStep'
+import SendOrRecieveStep from './sendOrRecieveStep';
+import CostStep from './costStep';
 
 function getSteps() {
-  return ['Select campaign settings', 'Create an ad group', 'Create an ad'];
+  return ['Fax Information', 'Cost Summary', 'Payment'];
 }
 
 function getStepContent(step) {
@@ -12,7 +13,7 @@ function getStepContent(step) {
     case 0:
       return <SendOrRecieveStep/>;
     case 1:
-      return 'What is an ad group anyways?';
+      return <CostStep/>;
     case 2:
       return 'This is the bit I really care about!';
     default:
