@@ -4,8 +4,10 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^1.4.2",
+    "material-ui-upload": "^1.2.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "react-number-format": "^3.5.1",
     "react-phone-number-input": "^2.1.13",
     "react-scripts": "1.1.4"
   },

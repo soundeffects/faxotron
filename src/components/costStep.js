@@ -1,12 +1,25 @@
 import React, {Component} from 'react';
+import { Typography } from '@material-ui/core';
+
+import styles from '../styles/main';
 
 class CostStep extends Component {
-  render() {
-    if (this.props.sending) {
-      return <p> This will cost you {this.props.cost} at {this.props.perCost} dollars a page due to your telephone region.</p>;
+  modeRender() {
+    if (this.props.mode === 'sending') {
+      return <Typography variant='subheading'>
+        This will cost you {'$X'} at {'$Y'} a page due to your telephone region.
+      </Typography>;
     } else {
-      return <p> This will cost you {this.props.cost} at {this.props.perCost} a day for {this.props.days}.</p>;
+      return <Typography variant='subheading'>
+        This will cost you {'$X'} at {'$Y'} a day for {'Z'} days.
+      </Typography>;
     }
+  }
+  
+  render() {
+    return <section style={styles.center}>
+      { this.modeRender() }
+    </section>
   }
 }
 

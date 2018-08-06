@@ -7,15 +7,36 @@ import styles from '../styles/main';
 
 class FaxInfo extends Component {
   state = {};
+  
+  onFileLoad = (e, file) => console.log(e.target.result, file.name);
+  
+  modeRender() {
+    if (this.props.mode === 'sending') {
+      return [
+        <PhoneInput style={styles.textField}
+          placeholder="Recipient Phone Number"
+          value={ this.state.phone }
+          onChange={ phone => this.setState({ phone }) }
+        />,
+        <input type='file'/>
+      ];
+    } else {
+      return [
+        <TextField style={styles.textField} type='email' label='Email'/>,
+        <TextField
+          style={styles.textField}
+          type='date'
+          label='Expected Recieving Date'
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
+        ];
+    }
+  }
 
   render() {
-    return <section style={styles.center}>
-      <PhoneInput style={styles.textField}
-        placeholder="Recipient Phone Number"
-        value={ this.state.phone }
-        onChange={ phone => this.setState({ phone }) } />
-      <TextField style={styles.textField} type='email' label='Email'/>
-    </section>;
+    return <form style={styles.center} noValidate>{ this.modeRender() }</form>;
   }
 }
 

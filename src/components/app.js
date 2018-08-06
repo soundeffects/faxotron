@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
+import { Typography, MuiThemeProvider } from '@material-ui/core';
 import TouchRipple from '@material-ui/core/ButtonBase/TouchRipple';
 
-import Header from './header';
 import Form from './form';
 import SendOrRecieve from './sendOrRecieve';
 
-import { green, blue } from '../styles/themes';
+import styles from '../styles/main';
 
 TouchRipple.prototype.render = () => null;
 
@@ -15,22 +14,35 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      theme: green,
-      form: false
+      theme: null,
+      progress: 'not started',
+      mode: 'sending'
     };
 
     this.handleView = this.handleView.bind(this);
-  };
+  }
 
-  handleView(form, theme = this.state.theme) {
-    this.setState({ theme, form });
+  handleView(progress, theme = this.state.theme, mode = this.state.mode) {
+    this.setState({ theme, progress, mode });
+  }
+  
+  formRender() {
+    switch(this.state.progress) {
+      case 'not started':
+        return <SendOrRecieve handleView={this.handleView}/>;
+      case 'underway':
+        return <Form mode={this.state.mode} handleView={this.handleView}/>;
+      case 'finished':
+        return <Typography variant='subheading'>You've finished!</Typography>;
+      default:
+        return <div>error</div>;
+    }
   }
 
   render() {
     return <MuiThemeProvider theme={this.state.theme}>
-      <Header/>
-      {this.state.form ? <Form handleView={this.handleView}/> : <SendOrRecieve handleView={this.handleView}/>}
-    </MuiThemeProvider>
+      { this.formRender() }
+    </MuiThemeProvider>;
   }
 }
 
