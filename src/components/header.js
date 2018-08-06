@@ -17,10 +17,9 @@ class Header extends Component {
           only to be met with subscription services you won't ever use again? Well look no further.
         </p>
         <p style={styles.aboutParagraph}>
-          The Fax-O-Tron, for a flat fee, will link your email to a fax number to either send or 
+          The Fax-O-Tron, for a flat fee, will link your email to a fax number to either send or
           recieve how many faxes you pay for, no extra strings attached.
         </p>
-        <Icon style={styles.icon}>arrow_drop_down</Icon>
       </article>
     </section>;
   }

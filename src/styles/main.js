@@ -1,5 +1,5 @@
 const styles = {
-  header: { 
+  header: {
     display: 'flex',
     padding: '1em',
     alignItems: 'center'
@@ -24,7 +24,6 @@ const styles = {
   textField: {
       width: '20em',
       marginTop: '1em',
-      color: 'red'
   }
 };
 

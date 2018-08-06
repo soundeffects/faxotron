@@ -3,7 +3,7 @@ import { MuiThemeProvider } from '@material-ui/core';
 import TouchRipple from '@material-ui/core/ButtonBase/TouchRipple';
 
 import Header from './header';
-import FaxForm from './faxForm';
+import Form from './form';
 
 import theme from '../styles/theme';
 
@@ -13,7 +13,7 @@ class App extends Component {
   render() {
     return <MuiThemeProvider theme={theme}>
       <Header/>
-      <FaxForm/>
+      <Form/>
     </MuiThemeProvider>
   }
 }
