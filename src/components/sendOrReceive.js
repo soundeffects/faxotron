@@ -4,7 +4,7 @@ import { Typography, Button, MuiThemeProvider, createMuiTheme } from '@material-
 import { green, blue } from '../styles/themes';
 import styles from '../styles/main';
 
-class SendOrRecieve extends Component {
+class SendOrReceive extends Component {
   render() {
     const buttonTheme = createMuiTheme({
       palette: {
@@ -48,4 +48,4 @@ class SendOrRecieve extends Component {
   }
 }
 
-export default SendOrRecieve;
+export default SendOrReceive;

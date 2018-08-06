@@ -3,9 +3,8 @@ import { Typography, MuiThemeProvider } from '@material-ui/core';
 import TouchRipple from '@material-ui/core/ButtonBase/TouchRipple';
 
 import Form from './form';
-import SendOrRecieve from './sendOrRecieve';
-
-import styles from '../styles/main';
+import SendOrReceive from './sendOrReceive';
+import Finished from './finished';
 
 TouchRipple.prototype.render = () => null;
 
@@ -29,11 +28,11 @@ class App extends Component {
   formRender() {
     switch(this.state.progress) {
       case 'not started':
-        return <SendOrRecieve handleView={this.handleView}/>;
+        return <SendOrReceive handleView={this.handleView}/>;
       case 'underway':
         return <Form mode={this.state.mode} handleView={this.handleView}/>;
       case 'finished':
-        return <Typography variant='subheading'>You've finished!</Typography>;
+        return Finished(this.state.mode);
       default:
         return <div>error</div>;
     }
