@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Typography, Icon } from '@material-ui/core/';
+import { Button, Typography } from '@material-ui/core/';
 
 import styles from '../styles/main';
 
@@ -14,7 +14,7 @@ class Header extends Component {
       <article style={styles.center}>
         <p style={styles.aboutParagraph}>
           Have you ever had to fax somebody in this modern age and searched online for a solution,
-          only to be met with subscription services you won't ever use again? Well look no further.
+          only to be met with subscription services you won&quot;t ever use again? Well look no further.
         </p>
         <p style={styles.aboutParagraph}>
           The Fax-O-Tron, for a flat fee, will link your email to a fax number to either send or

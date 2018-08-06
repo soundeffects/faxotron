@@ -132,7 +132,7 @@
 
 .react-phone-number-input__country-select:focus + .react-phone-number-input__country-select-arrow
 {
-	color : #00b0ff;
+	color : #aeea00;
 }
 
 /* Styling phone number input */
@@ -152,7 +152,7 @@
 
 .react-phone-number-input__input:focus
 {
-	border-color : #00b0ff;
+	border-color : #aeea00;
 }
 
 .react-phone-number-input__input--disabled

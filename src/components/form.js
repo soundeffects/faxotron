@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Typography, Button, Stepper, Step, StepLabel } from '@material-ui/core';
 
-import SendOrRecieveStep from './sendOrRecieveStep';
+import FaxInfo from './faxInfo';
 import CostStep from './costStep';
 
 function getSteps() {
@@ -11,7 +11,7 @@ function getSteps() {
 function getStepContent(step) {
   switch (step) {
     case 0:
-      return <SendOrRecieveStep/>;
+      return <FaxInfo/>;
     case 1:
       return <CostStep/>;
     case 2:
@@ -22,22 +22,20 @@ function getStepContent(step) {
 }
 
 class Form extends Component {
-  state = {
-    activeStep: 0,
-  };
+  state = { activeStep: 0 };
 
   handleNext = () => {
     const { activeStep } = this.state;
-    this.setState({
-      activeStep: activeStep + 1
-    });
+    this.setState({ activeStep: activeStep + 1 });
   };
 
   handleBack = () => {
     const { activeStep } = this.state;
-    this.setState({
-      activeStep: activeStep - 1,
-    });
+    if (activeStep === 0) {
+      this.props.handleView(false);
+    } else {
+      this.setState({ activeStep: activeStep - 1 });
+    }
   };
 
   render() {
@@ -59,29 +57,16 @@ class Form extends Component {
         </Stepper>
         <div>
           {activeStep === steps.length ? (
-            <div>
-              <Typography>
-                All steps completed - you&quot;re finished
-              </Typography>
-            </div>
+            <Typography>
+              All steps completed - you&quot;re finished
+            </Typography>
           ) : (
             <div>
               {getStepContent(activeStep)}
-              <div>
-                <Button
-                  disabled={activeStep === 0}
-                  onClick={this.handleBack}
-                >
-                  Back
-                </Button>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  onClick={this.handleNext}
-                >
-                  {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-                </Button>
-              </div>
+              <Button onClick={this.handleBack}>Back</Button>
+              <Button variant="contained" color="primary" onClick={this.handleNext}>
+                {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+              </Button>
             </div>
           )}
         </div>

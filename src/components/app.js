@@ -1,19 +1,35 @@
 import React, { Component } from 'react';
-import { MuiThemeProvider } from '@material-ui/core';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
 import TouchRipple from '@material-ui/core/ButtonBase/TouchRipple';
 
 import Header from './header';
 import Form from './form';
+import SendOrRecieve from './sendOrRecieve';
 
-import theme from '../styles/theme';
+import { green, blue } from '../styles/themes';
 
 TouchRipple.prototype.render = () => null;
 
+
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      theme: green,
+      form: false
+    };
+
+    this.handleView = this.handleView.bind(this);
+  };
+
+  handleView(form, theme = this.state.theme) {
+    this.setState({ theme, form });
+  }
+
   render() {
-    return <MuiThemeProvider theme={theme}>
+    return <MuiThemeProvider theme={this.state.theme}>
       <Header/>
-      <Form/>
+      {this.state.form ? <Form handleView={this.handleView}/> : <SendOrRecieve handleView={this.handleView}/>}
     </MuiThemeProvider>
   }
 }
