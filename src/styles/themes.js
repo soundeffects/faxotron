@@ -8,6 +8,6 @@ export const green = createMuiTheme({
 
 export const blue = createMuiTheme({
   palette: {
-    primary: { main: '#00b0ff' }
+    primary: { main: '#54d4ff' }
   }
 });

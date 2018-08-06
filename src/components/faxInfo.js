@@ -18,7 +18,7 @@ class FaxInfo extends Component {
           value={ this.state.phone }
           onChange={ phone => this.setState({ phone }) }
         />,
-        <input type='file'/>
+        <input type='file' style={styles.chooseFile}/>
       ];
     } else {
       return [
@@ -26,7 +26,7 @@ class FaxInfo extends Component {
         <TextField
           style={styles.textField}
           type='date'
-          label='Expected Recieving Date'
+          label='Expected Receiving Date'
           InputLabelProps={{
             shrink: true,
           }}

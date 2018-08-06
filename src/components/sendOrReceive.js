@@ -19,24 +19,26 @@ class SendOrReceive extends Component {
         <article>
           <Typography variant='body1' style={styles.aboutParagraph}>
             Have you ever had to fax somebody in this modern age and searched online for a solution,
-            only to be met with subscription services you won&quot;t ever use again? Well look no further.
+            only to be met with subscription services you won't ever use again? Well look no further.
           </Typography>
           <Typography variant='body1' style={styles.aboutParagraph}>
-            The Fax-O-Tron, for a flat fee, will link your email to a fax number to either send or
-            receive how many faxes you pay for, no extra strings attached.
+            The Fax-O-Tron will let you send or receive however many faxes you want for a one-time
+            charge.
           </Typography>
-          <Typography variant='subheading' style={styles.center}>
+          <Typography variant='subheading' style={styles.subheading}>
             Let's get started.
           </Typography>
         </article>
         <div className='wrapper'>
           <Button
+            style={styles.button}
             variant='contained'
             color='primary'
             onClick={() => this.props.handleView('underway', green, 'sending')}>
             Send
           </Button>
           <Button
+            style={styles.button}
             variant='contained'
             color='secondary'
             onClick={() => this.props.handleView('underway', blue, 'receiving')}>

@@ -68,8 +68,8 @@ class Form extends Component {
       this.getStepContent(activeStep),
       <section style={styles.center}>
         <div className='wrapper'>
-          <Button onClick={this.handleBack}>Back</Button>
-          <Button variant="contained" color='primary' onClick={this.handleNext}>
+          <Button style={styles.button} onClick={this.handleBack}>Back</Button>
+          <Button style={styles.button} variant="contained" color='primary' onClick={this.handleNext}>
             {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
           </Button>
         </div>
