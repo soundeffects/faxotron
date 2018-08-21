@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Typography, MuiThemeProvider } from '@material-ui/core';
+import { MuiThemeProvider } from '@material-ui/core';
 import TouchRipple from '@material-ui/core/ButtonBase/TouchRipple';
 
 import Form from './form';
