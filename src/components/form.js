@@ -13,12 +13,12 @@ class Form extends Component {
       {
         name: 'Fax Information',
         component: FaxInfo
-      }, 
+      },
       {
         name: 'Cost Summary',
         component: CostStep
       },
-      { 
+      {
         name: 'Payment',
         component: PaymentInfo
       }
@@ -43,28 +43,30 @@ class Form extends Component {
       this.setState({ activeStep: activeStep - 1 });
     }
   };
-  
+
   getStepContent() {
     const { steps, activeStep } = this.state;
     const StepComponent = steps[activeStep].component;
-    
+
     return <StepComponent mode={this.props.mode}/>;
   }
 
   render() {
     const { steps, activeStep } = this.state;
-    
-    return [<Stepper activeStep={activeStep}>
-        {steps.map((step, index) => {
-          const props = {};
-          const labelProps = {};
-          return (
-            <Step key={step.name} {...props}>
-              <StepLabel {...labelProps}>{step.name}</StepLabel>
-            </Step>
-          );
-        })}
-      </Stepper>,
+
+    return [<div style={styles.steps}>
+        <Stepper activeStep={activeStep}>
+          {steps.map((step, index) => {
+            const props = {};
+            const labelProps = {};
+            return (
+              <Step key={step.name} {...props}>
+                <StepLabel {...labelProps}>{step.name}</StepLabel>
+              </Step>
+            );
+          })}
+        </Stepper>
+      </div>,
       this.getStepContent(activeStep),
       <section style={styles.center}>
         <div className='wrapper'>
