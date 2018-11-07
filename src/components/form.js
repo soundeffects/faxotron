@@ -68,12 +68,14 @@ class Form extends Component {
         </Stepper>
       </div>,
       this.getStepContent(activeStep),
-      <section style={styles.center}>
-        <div className='wrapper'>
-          <Button style={styles.button} onClick={this.handleBack}>Back</Button>
-          <Button style={styles.button} variant="contained" color='primary' onClick={this.handleNext}>
-            {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-          </Button>
+      <section style={styles.progressButtons}>
+        <div style={styles.center}>
+          <div className='wrapper'>
+            <Button style={styles.button} onClick={this.handleBack}>Back</Button>
+            <Button style={styles.button} variant="contained" color='primary' onClick={this.handleNext}>
+              {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+            </Button>
+          </div>
         </div>
       </section>
     ];

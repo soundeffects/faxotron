@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Typography, Button, MuiThemeProvider, createMuiTheme } from '@material-ui/core';
+import Footer from './footer';
 
 import { green, blue } from '../styles/themes';
 import styles from '../styles/main';
@@ -45,6 +46,7 @@ class SendOrReceive extends Component {
             Receive
           </Button>
         </div>
+        <Footer/>
       </section>
     </MuiThemeProvider>
   }

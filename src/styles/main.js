@@ -36,11 +36,26 @@ const styles = {
       width: '20em',
       marginTop: '1em'
   },
+  paymentMargin: {
+    marginTop: '1em'
+  },
   steps: {
     display: 'flex',
     alignItems: 'center',
     flexDirection: 'column',
     marginTop: '4em'
+  },
+  progressButtons: {
+    position: 'fixed',
+    left: '0',
+    bottom: '0',
+    width: '100%',
+    height: '50%'
+  },
+  footer: {
+    position: 'fixed',
+    bottom: '0',
+    marginBottom: '1em'
   }
 };
 

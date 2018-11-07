@@ -11,7 +11,7 @@ class PaymentInfo extends Component {
     cvc: '',
     expiryDate: ''
   };
-  
+
   handleChange = name => event => {
     this.setState({
       [name]: event.target.value,
@@ -21,33 +21,36 @@ class PaymentInfo extends Component {
   render() {
     return <section style={styles.center}>
       <Typography>Total Cost: {'$X'}</Typography>
-      <TextField
-        styles={styles.textField}
-        label="Card Number"
-        value={this.state.cardNumber}
-        onChange={this.handleChange('cardNumber')}
-        InputProps={{
-          inputComponent: CardNumber,
-        }}
-      />
-      <TextField
-        styles={styles.textField}
-        label="CVC"
-        value={this.state.cvc}
-        onChange={this.handleChange('cvc')}
-        InputProps={{
-          inputComponent: CVCNumber,
-        }}
-      />
-      <TextField
-        styles={styles.textField}
-        label="Expiry Date"
-        value={this.state.expiryDate}
-        onChange={this.handleChange('expiryDate')}
-        InputProps={{
-          inputComponent: ExpiryNumber,
-        }}
-      />
+      <div style={ styles.paymentMargin }>
+        <TextField
+          label="Card Number"
+          value={this.state.cardNumber}
+          onChange={this.handleChange('cardNumber')}
+          InputProps={{
+            inputComponent: CardNumber,
+          }}
+        />
+      </div>
+      <div style={ styles.paymentMargin }>
+        <TextField
+          label="CVC"
+          value={this.state.cvc}
+          onChange={this.handleChange('cvc')}
+          InputProps={{
+            inputComponent: CVCNumber,
+          }}
+        />
+      </div>
+      <div style={ styles.paymentMargin }>
+        <TextField
+          label="Expiry Date"
+          value={this.state.expiryDate}
+          onChange={this.handleChange('expiryDate')}
+          InputProps={{
+            inputComponent: ExpiryNumber,
+          }}
+        />
+      </div>
     </section>;
   }
 }
